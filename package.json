@@ -8,8 +8,11 @@
 		"blueimp-md5": "~2.10.0",
 		"get-stream": "~3.0.0",
 		"lru-cache": "~4.1.1",
+		"node-cookie": "~2.1.0",
+		"node-rsa": "~0.4.2",
+		"node-static-alias": "~1.0.0",
 		"nodegit": "~0.20.3",
-		"node-static-alias": "~1.0.0"
+		"urlencoded-body-parser": "~2.0.1"
 	},
 	"author": "Kyle Simpson",
 	"license": "MIT"

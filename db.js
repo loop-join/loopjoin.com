@@ -7,6 +7,8 @@ var sqlite3 = require("better-sqlite3");
 var config = require(path.join(__dirname,"config.js"));
 
 var DB = Object.assign(module.exports,{
+	getUsername(){},
+	getAccount(){},
 	// getCommitHash,
 	// getAllCommitHashes,
 	// storeHashes,

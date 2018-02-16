@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Register Profile</title>
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<header>
+		<h1><a href="/">ChainedLink</a></h1>
+
+		<nav>
+			<a href="/">home</a> | <a href="/about">about</a> | <a href="/login">login</a>
+		</nav>
+	</header>
+
+	<main>
+		<h1>Register Profile</h1>
+
+		<form rel="js-registration-form" id="registration-form" method="post" action="/register">
+			<input rel="js-load-key-picker" id="load-key-picker" type="file" tabindex="-1">
+			<p>
+				Pick a profile username: <input rel="js-profile-username" id="profile-username" name="profile-username" type="text" size="40" maxlength="25" placeholder="letters, numbers, '- _ . :' characters" tabindex="1" autocomplete="off" autofocus> <small>(5-25 chars)</small>
+			</p>
+			<div rel="js-register-new-account" id="register-new-account">
+				<p>
+					By default, registering a public <strong>ChainedLink</strong> profile creates a new <a href="http://mentocoin.com" tabindex="1000">MentoCoin</a> account for you. But if you already have an account, you can just link it to your new profile here instead.<br>
+					<button rel="js-link-account-btn" id="link-account-btn" type="button" tabindex="2">I already have an account!</button>
+				</p>
+			</div>
+			<div rel="js-register-link-account" id="register-link-account">
+				<p>
+					Existing MentoCoin Account ID:<br>
+					<input rel="js-mentocoin-account" id="mentocoin-account" name="mentocoin-account" type="text" size="67" maxlength="64" placeholder="letters, numbers, '- /' characters" tabindex="3" autocomplete="off" disabled> <small>(64 chars)</small><br>
+					<button rel="js-register-new-account-btn" id="register-new-account-btn" type="button" tabindex="4">Oops, I guess I actually <em>DO</em> need a new account...</button>
+				</p>
+			</div>
+			<p>
+				MentoCoin Account Public Key (RSA in PEM format): <button rel="js-load-pubkey-btn" id="load-pubkey-btn" type="button" tabindex="5">Load from file</button><br>
+				<textarea rel="js-mentocoin-account-pubkey" id="mentocoin-account-pubkey" name="mentocoin-account-pubkey" cols="66" rows="3" tabindex="6" placeholder="RSA Public Key"></textarea><br>
+				<button rel="js-new-key-btn" id="new-key-btn" type="button" tabindex="7">I need a new RSA Key!</button>
+			</p>
+			<p>
+				Challenge: <input rel="js-mentocoin-account-challenge" id="mentocoin-account-challenge" name="mentocoin-account-challenge" placeholder="..." type="text" size="25" tabindex="-1" readonly>
+			</p>
+			<p>
+				Signature: <input rel="js-mentocoin-account-signature" id="mentocoin-account-signature" name="mentocoin-account-signature" type="text" size="50" placeholder="..." tabindex="8"> <button rel="js-compute-signature-btn" id="compute-signature-btn" type="button" tabindex="9" autocomplete="off">Compute</button>
+			</p>
+			<p>
+				<button rel="js-register-btn" id="register-btn" tabindex="10" disabled>Register</button>
+				<small>or <a href="/login" tabindex="11">login</a></small>
+			</p>
+		</form>
+	</main>
+
+	<footer>
+		&copy; 2018 ChainedLink. All rights reserved. <a href="/privacy">Privacy</a> | <a href="/tos">Terms of Service</a>
+	</footer>
+
+	<div rel="js-notification-banner" id="notification-banner">
+		<div rel="js-notification-banner-text" id="notification-banner-text"></div>
+		<button rel="js-notification-close-btn" id="notification-close-btn">OK</button>
+		<button rel="js-notification-cancel-btn" id="notification-cancel-btn" title="Close">&#10006;</button>
+	</div>
+
+	<script src="/js/rsa-keys.js"></script>
+	<script>
+		// setTimeout(async function main(){
+		// 	var keys = await RSAKeys.generate();
+
+		// 	keys.privKey = await RSAKeys.parseFromText(keys.privKeyText,/*isPrivateKey=*/true);
+		// 	keys.pubKey = await RSAKeys.parseFromText(keys.pubKeyText,/*isPrivateKey=*/false);
+
+		// 	var cleartext = "Hello World!";
+
+		// 	var signature = await RSAKeys.sign(cleartext,keys.privKey);
+
+		// 	console.log(keys.privKeyText);
+		// 	console.log(keys.pubKeyText);
+
+		// 	console.log(signature);
+
+		// 	var result = await RSAKeys.verify(cleartext,signature,keys.pubKey);
+
+		// 	console.log(result);
+		// },1000);
+	</script>
+
+
+	<script src="/js/register.js"></script>
+	<script src="/js/notification.js"></script>
+</body>
+</html>

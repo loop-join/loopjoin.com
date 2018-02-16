@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Profile Login</title>
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<header>
+		<h1><a href="/">ChainedLink</a></h1>
+
+		<nav>
+			<a href="/">home</a> | <a href="/about">about</a> | login
+		</nav>
+	</header>
+
+	<main>
+		<h1>Profile Login</h1>
+
+		<form rel="js-login-form" id="login-form" method="post" action="/login">
+			<p>
+				Username: <input rel="js-profile-username" id="profile-username" type="text" size="25" maxlength="25" placeholder="Username"> <small><a href="/forgot">forgot username?</a></small>
+			</p>
+			<p>
+				Challenge: <input rel="js-mentocoin-account-challenge" id="mentocoin-account-challenge" type="text" size="25" readonly disabled>
+			</p>
+			<p>
+				Signature: <input rel="js-mentocoin-account-signature" id="mentocoin-account-signature" type="text" size="25" placeholder="Signature" disabled> <button rel="js-compute-signature-btn" id="js-compute-signature-btn" type="button" disabled>Compute</button>
+			</p>
+			<p>
+				<button rel="js-login-btn" id="login-btn" disabled>Login</button>
+				<small>or <a href="/register">register</a></small>
+			</p>
+		</form>
+	</main>
+
+	<footer>
+		&copy; 2018 ChainedLink. All rights reserved. <a href="/privacy">Privacy</a> | <a href="/tos">Terms of Service</a>
+	</footer>
+
+	<div rel="js-notification-banner" id="notification-banner">
+		<div rel="js-notification-banner-text" id="notification-banner-text"></div>
+		<button rel="js-notification-close-btn" id="notification-close-btn">OK</button>
+		<button rel="js-notification-cancel-btn" id="notification-cancel-btn" title="Close">&#10006;</button>
+	</div>
+
+	<script src="/js/register.js"></script>
+	<script src="/js/notification.js"></script>
+</body>
+</html>

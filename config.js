@@ -84,20 +84,20 @@ Object.assign(HTTPS,{
 		},
 	},
 
-	// API_CORS_HEADERS: {
-	// 	"GET": {
-	// 		"Access-Control-Allow-Origin": "*",
-	// 		"Access-Control-Allow-Credentials": false,
-	// 		"Access-Control-Allow-Methods": "GET, OPTIONS",
-	// 		"Access-Control-Allow-Headers": "Accept, Content-Type, User-Agent, X-Requested-With",
-	// 	},
-	// 	"POST": {
-	// 		"Access-Control-Allow-Origin": "*",
-	// 		"Access-Control-Allow-Credentials": false,
-	// 		"Access-Control-Allow-Methods": "POST, OPTIONS",
-	// 		"Access-Control-Allow-Headers": "Accept, Content-Type, User-Agent, X-Requested-With",
-	// 	},
-	// },
+	API_CORS_HEADERS: {
+		"GET": {
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Credentials": false,
+			"Access-Control-Allow-Methods": "GET, OPTIONS",
+			"Access-Control-Allow-Headers": "Accept, Content-Type, User-Agent, X-Requested-With",
+		},
+		"POST": {
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Credentials": false,
+			"Access-Control-Allow-Methods": "POST, OPTIONS",
+			"Access-Control-Allow-Headers": "Accept, Content-Type, User-Agent, X-Requested-With",
+		},
+	},
 
 	CSP_HEADER: [
 		`default-src 'self'`,
