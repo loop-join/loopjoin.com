@@ -1,8 +1,8 @@
 "use script";
 
 var RSAKeys = (function defineRSA(){
-	var webcrypto = (window.crypto && window.crypto.subtle) || undefined;
-	// var webcrypto;
+	// var webcrypto = (window.crypto && window.crypto.subtle) || undefined;
+	var webcrypto;
 
 	var publicAPI = {
 		onReady,
@@ -29,7 +29,7 @@ var RSAKeys = (function defineRSA(){
 		}
 	}
 
-	async function generate() {
+	async function generate(length = 2048) {
 		var privKey, privKeyText, pubKey, pubKeyText;
 
 		if (webcrypto && webcrypto.generateKey) {
@@ -39,7 +39,7 @@ var RSAKeys = (function defineRSA(){
 			} = await webcrypto.generateKey(
 				{
 					name: "RSASSA-PKCS1-v1_5",
-					modulusLength: 2048,
+					modulusLength: length,
 					publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
 					hash: { name: "SHA-256" },
 				},
@@ -73,7 +73,7 @@ var RSAKeys = (function defineRSA(){
 		};
 	}
 
-	async function parseFromText(keyText,isPrivateKey = false,length = 2048) {
+	async function parseFromText(keyText,isPrivateKey = false) {
 		if (webcrypto && webcrypto.importKey) {
 			let keyFormat = isPrivateKey ? "pkcs8" : "spki";
 			let keyTextBuffer = fromPem(keyText);
@@ -84,8 +84,6 @@ var RSAKeys = (function defineRSA(){
 				keyTextBuffer,
 				{
 					name: "RSASSA-PKCS1-v1_5",
-					modulusLength: length,
-					publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
 					hash: { name: "SHA-256" },
 				},
 				true,
@@ -190,6 +188,19 @@ var RSAKeys = (function defineRSA(){
 			},false);
 		});
 	}
+
+
+	// function getRsaFromPubKey(pubKeyB64) {
+	// 	const pubKeyDecoded = b64tohex(pubKeyB64);
+
+	// 	// jsrsasign cannot build key out of PEM or ASN.1 string, so we have to extract modulus and exponent
+	// 	// you can get some idea what happens from the link below (keep in mind that in JS every char is 2 bytes)
+	// 	// https://crypto.stackexchange.com/questions/18031/how-to-find-modulus-from-a-rsa-public-key/18034#18034
+	// 	const modulus = pubKeyDecoded.substr(50, 128);
+	// 	const exp = pubKeyDecoded.substr(182, pubKeyDecoded.length);
+
+	// 	return KEYUTIL.getKey({n: modulus, e: exp});
+	// }
 
 })();
 

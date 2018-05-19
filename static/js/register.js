@@ -278,7 +278,7 @@ var RegisterProfile = (function defineRegister(){
 					return;
 				}
 
-				var keyText = reader.result.toString().replace(/^\s+/,"").replace(/\s+$/,"");
+				let keyText = reader.result.toString().replace(/^\s+/,"").replace(/\s+$/,"");
 
 				if (!checkPublicKeyText(keyText)) {
 					Notification.show("That file doesn't look like a valid RSA Public Key. It should be plain text in the standard PEM format.",true);
