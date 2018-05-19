@@ -142,7 +142,7 @@ async function handle(req,res) {
 }
 
 function generateURL(commitHash) {
-	return `${config.HTTPS.AVATAR_IMAGE_CDN}/chained-link/p/${commitHash}/profiles/p.json`;
+	return `${config.HTTPS.AVATAR_IMAGE_CDN}/loop-join/p/${commitHash}/profiles/p.json`;
 }
 
 function checkAccount(val) {

@@ -76,9 +76,7 @@ async function handleRequest(req,res) {
 	if (
 		config.HTTPS.ENFORCE_REDIRECTS &&
 		(
-			req.headers["host"] == "chainedlink.io" ||
-			req.headers["host"] == "www.chainedlink.io" ||
-			req.headers["host"] == "www.chained.link" ||
+			req.headers["host"] == "www.loopjoin.com" ||
 			req.headers["x-forwarded-proto"] !== "https"
 		)
 	) {

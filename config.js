@@ -3,8 +3,8 @@ var fs = require("fs");
 
 var DIRS = {
 	SECRETS_DIR: path.join("..","secrets"),
-	DB_DIR: path.join("..","chained-db"),
-	GIT_DIR: path.join("..","chained-repo"),
+	DB_DIR: path.join("..","loopjoin-db"),
+	GIT_DIR: path.join("..","loopjoin-repo"),
 	STATIC_DIR: path.join(".","static"),
 };
 
@@ -16,18 +16,18 @@ var CREDENTIALS = JSON.parse(
 );
 
 var DB = {
-	PATH: path.join(DIRS.DB_DIR,"chainedlink.db"),
+	PATH: path.join(DIRS.DB_DIR,"loopjoin.db"),
 };
 
 var GIT = {
 	USERNAME: "git",
 	PUBLIC_KEY_PATH: path.join(DIRS.SECRETS_DIR,"github.public.key"),
 	PRIVATE_KEY_PATH: path.join(DIRS.SECRETS_DIR,"github.private.key"),
-	PUBLIC_NAME: "ChainedLink Admin",
-	PUBLIC_EMAIL: "chainedlinksite@gmail.com",
+	PUBLIC_NAME: "LoopJoin Admin",
+	PUBLIC_EMAIL: "loopjoinsite@gmail.com",
 	ORIGIN_NAME: "origin",
-	NETWORK_ORIGIN: "git@github.com:chained-link/p.git",
-	SHELL_ORIGIN: "git@github.com-chainedlink:chained-link/p.git",
+	NETWORK_ORIGIN: "git@github.com:loop-join/p.git",
+	SHELL_ORIGIN: "git@github.com-loopjoin:loop-join/p.git",
 };
 
 var HTTPS = {};
@@ -48,7 +48,7 @@ else {
 	Object.assign(HTTPS,{
 		SERVER_ADDR: "10.10.10.1",
 		SERVER_PORT: 443,
-		SITE_ORIGIN: "chained.link",
+		SITE_ORIGIN: "loopjoin.com",
 		STATIC_FILE_CACHE_LENGTH: 86400,
 		ENFORCE_REDIRECTS: true,
 		AVATAR_IMAGE_CDN: "https://raw.githubusercontent.com",
@@ -58,10 +58,10 @@ else {
 }
 
 Object.assign(HTTPS,{
-	SERVER_NAME: "ChainedLink",
+	SERVER_NAME: "LoopJoin",
 
-	KEY_PATH: path.join(DIRS.SECRETS_DIR,"chainedlink.private.key"),
-	CERT_PATH: path.join(DIRS.SECRETS_DIR,"chainedlink.crt"),
+	KEY_PATH: path.join(DIRS.SECRETS_DIR,"loopjoin.private.key"),
+	CERT_PATH: path.join(DIRS.SECRETS_DIR,"loopjoin.crt"),
 
 	CORS_HEADERS: {
 		HEAD: {

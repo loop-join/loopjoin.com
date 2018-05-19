@@ -23,7 +23,7 @@ var avatarsDB;
 
 function init() {
 	avatarsDB = new sqlite3(config.DB.PATH);
-	var initSQL = fs.readFileSync(path.join(__dirname,"chainedlink.sql"),"utf-8");
+	var initSQL = fs.readFileSync(path.join(__dirname,"loopjoin.sql"),"utf-8");
 	avatarsDB.exec(initSQL);
 }
 

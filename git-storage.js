@@ -21,12 +21,12 @@ init();
 // **************************************
 
 var lockRepo;
-var chainedRepo;
+var loopJoinRepo;
 
 async function init() {
 	lockRepo = Mutex.create();
 	var unlockRepo = lockRepo.lock();
-	chainedRepo = await Git.Repository.openBare(config.GIT_DIR);
+	loopJoinRepo = await Git.Repository.openBare(config.GIT_DIR);
 	unlockRepo();
 }
 
@@ -34,7 +34,7 @@ async function saveFile(fileBuf) {
 	var unlockRepo = await lockRepo.lock();
 
 	try {
-		let commitHash = await replaceAvatarFile(chainedRepo,fileBuf);
+		let commitHash = await replaceAvatarFile(loopJoinRepo,fileBuf);
 		if (!(
 			typeof commitHash == "string" &&
 			commitHash.length == 40
@@ -42,7 +42,7 @@ async function saveFile(fileBuf) {
 			throw "Commit failed.";
 		}
 
-		// await pushRepo(chainedRepo,"origin");
+		// await pushRepo(loopJoinRepo,"origin");
 
 		return commitHash;
 	}
